@@ -54,7 +54,9 @@
             </div>
           </div>
     </div>
+    {% if has_books %}
     <h1>{{ random_book.title }}</h1>
     <img src="{{ random_book.cover_url }}"
+    {% endif %}
 </body>
 </html>

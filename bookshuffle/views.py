@@ -40,8 +40,9 @@ def index():
         if int(page) < 100:
             books = [book for book in books if 'number_of_pages_median' in data['docs'] and data['docs']['number_of_pages_median'] < 100]
 
-        if books:
+        has_books = bool(books)
+        if has_books:
             random_book = random.choice(books)
-            return render_template("index.html", random_book=random_book, titles1=True)
+            return render_template("index.html", random_book=random_book, has_books=has_books, titles1=True)
 
-    return render_template("index.html")
+    return render_template("index.html", has_books=False)
